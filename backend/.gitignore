@@ -1,0 +1,14 @@
+# Node modules
+node_modules/
+npm-debug.log
+.env # Crucial: Your environment variables file should NOT be committed!
+
+# Build output (if any, though less common for pure API backend)
+/dist/
+/build/
+
+# IDEs and OS generated files
+.idea/
+.vscode/
+.DS_Store
+*.log
