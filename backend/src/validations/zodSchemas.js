@@ -23,7 +23,6 @@ const createCourseSchema = z.object({
   description: z.string().min(1, "Description is required!"),
   price: z.number().min(0, "Price cannot be negative!"),
   imageLink: z
-    .string()
     .url("Enter a valid URL for image link!")
     .optional()
     .or(z.literal("")),
@@ -32,7 +31,7 @@ const createCourseSchema = z.object({
 
 const courseContentSchema = z.object({
   title: z.string().min(1, "Title is required!"),
-  videoUrl: z.string().url("Enter a valid URL for video!"),
+  videoUrl: z.url("Enter a valid URL for video!"),
   description: z.string().optional(),
 });
 
