@@ -4,6 +4,7 @@ const connectDB = require("./src/config/db");
 const cors = require("cors");
 const userAuthRoutes = require("./src/routes/userAuthRoutes");
 const adminAuthRoutes = require("./src/routes/adminAuthRoutes");
+const courseRoutes = require("./src/routes/courseRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -20,6 +21,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/user", userAuthRoutes);
 app.use("/api/admin", adminAuthRoutes);
+app.use("/api/courses", courseRoutes);
 
 // --- Start the Server ---
 async function startServer() {
