@@ -7,6 +7,7 @@ const adminAuthRoutes = require("./src/routes/adminAuthRoutes");
 const courseRoutes = require("./src/routes/courseRoutes");
 const courseContentRoutes = require("./src/routes/courseContentRoutes");
 const userRoutes = require("./src/routes/userRoutes");
+const adminRoutes = require("./src/routes/adminRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -26,6 +27,7 @@ app.use("/api/admin", adminAuthRoutes);
 app.use("/api/courses", courseRoutes);
 app.use("/api/courses/:courseId/content", courseContentRoutes);
 app.use("/api/user", userRoutes);
+app.use("/api/admin", adminRoutes);
 
 // --- Start the Server ---
 async function startServer() {
