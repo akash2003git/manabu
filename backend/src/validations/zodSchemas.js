@@ -35,9 +35,14 @@ const courseContentSchema = z.object({
   description: z.string().optional(),
 });
 
+const purchaseCourseSchema = z.object({
+  courseId: z.string().length(24, "Invalid course ID format."),
+});
+
 module.exports = {
   signupSchema,
   loginSchema,
   createCourseSchema,
   courseContentSchema,
+  purchaseCourseSchema,
 };
