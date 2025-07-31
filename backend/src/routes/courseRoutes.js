@@ -7,10 +7,7 @@ const {
   updateCourse,
   deleteCourse,
 } = require("../controllers/courseController");
-const {
-  authenticateJwt,
-  authenticateAdmin,
-} = require("../middleware/authMiddleware");
+const { authenticateAdmin } = require("../middleware/authMiddleware");
 
 router.route("/").get(getCourses).post(authenticateAdmin, createCourse);
 
