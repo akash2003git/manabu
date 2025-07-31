@@ -12,14 +12,11 @@ const {
   authenticateAdmin,
 } = require("../middleware/authMiddleware");
 
-router
-  .route("/")
-  .get(authenticateJwt, getCourses)
-  .post(authenticateAdmin, createCourse);
+router.route("/").get(getCourses).post(authenticateAdmin, createCourse);
 
 router
   .route("/:id")
-  .get(authenticateJwt, getCourseById)
+  .get(getCourseById)
   .put(authenticateAdmin, updateCourse)
   .delete(authenticateAdmin, deleteCourse);
 
