@@ -27,6 +27,7 @@ const createCourseSchema = z.object({
     .optional()
     .or(z.literal("")),
   published: z.boolean().optional(),
+  featured: z.boolean().optional(),
 });
 
 const courseContentSchema = z.object({

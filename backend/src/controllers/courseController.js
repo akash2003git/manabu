@@ -4,7 +4,7 @@ const { createCourseSchema } = require("../validations/zodSchemas.js");
 
 const createCourse = async (req, res) => {
   try {
-    const { title, description, price, imageLink, published } =
+    const { title, description, price, imageLink, published, featured } =
       createCourseSchema.parse(req.body);
     const course = await Course.create({
       title,
@@ -12,6 +12,7 @@ const createCourse = async (req, res) => {
       price,
       imageLink,
       published,
+      featured: featured || false,
     });
     res.status(201).json({ message: "Course create successfully!", course });
   } catch (error) {
@@ -35,7 +36,14 @@ const createCourse = async (req, res) => {
 
 const getCourses = async (req, res) => {
   try {
-    const courses = await Course.find({}).sort({ createdAt: -1 });
+    const { featured } = req.query;
+    const filter = {};
+    if (featured === "true") {
+      filter.featured = true;
+    }
+    // if ?featured=false => find({})
+    // if ?featured=true => find({featured: true})
+    const courses = await Course.find(filter).sort({ createdAt: -1 });
     res.status(200).json(courses);
   } catch (error) {
     console.error("Server error fetching courses:", error);

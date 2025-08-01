@@ -8,6 +8,11 @@ const courses = require("./courseData");
 
 dotenv.config(); // Load environment variables from .env file
 
+if (!process.env.MONGO_URI) {
+  console.error("Error: MONGO_URI is not defined in the .env file.");
+  process.exit(1);
+}
+
 // Sample data for users and admins
 const users = [
   {
@@ -63,18 +68,22 @@ const seedDatabase = async () => {
     // Seed users
     console.log("Seeding users...");
     await User.insertMany(hashedUsers);
+    console.log(`Seeded ${hashedUsers.length} users`);
 
     // Seed admins
     console.log("Seeding admins...");
     await Admin.insertMany(hashedAdmins);
+    console.log(`Seeded ${hashedAdmins.length} admins`);
 
     // Seed courses
     console.log("Seeding courses...");
     await Course.insertMany(courses);
+    console.log(`Seeded ${courses.length} courses`);
 
     console.log("Database seeding complete! Tables are now populated.");
   } catch (error) {
     console.error("An error occurred during seeding:", error);
+    process.exit(1);
   } finally {
     await mongoose.disconnect();
     console.log("MongoDB disconnected.");

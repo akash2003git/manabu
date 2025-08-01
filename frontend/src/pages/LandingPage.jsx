@@ -1,9 +1,11 @@
-function LandingPage() {
+import Hero from "../components/layout/Hero";
+
+const LandingPage = () => {
   return (
-    <div>
-      <h1>LandingPage</h1>
-    </div>
+    <>
+      <Hero />;
+    </>
   );
-}
+};
 
 export default LandingPage;

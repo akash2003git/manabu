@@ -27,6 +27,7 @@ const courses = [
     price: 79.99,
     imageLink: "https://placehold.co/600x400/22C55E/ffffff?text=React",
     published: true,
+    featured: true,
     content: [
       {
         title: "Setting up a React Project",
@@ -47,6 +48,7 @@ const courses = [
     price: 99.99,
     imageLink: "https://placehold.co/600x400/3B82F6/ffffff?text=Node.js",
     published: true,
+    featured: true,
     content: [
       {
         title: "Introduction to Node.js",
@@ -88,6 +90,7 @@ const courses = [
     price: 89.99,
     imageLink: "https://placehold.co/600x400/FACC15/000000?text=DSA",
     published: true,
+    featured: true,
     content: [
       {
         title: "Arrays and Linked Lists",
@@ -108,6 +111,7 @@ const courses = [
     price: 129.99,
     imageLink: "https://placehold.co/600x400/EF4444/ffffff?text=ML",
     published: true,
+    featured: true,
     content: [
       {
         title: "What is Machine Learning?",
@@ -214,6 +218,7 @@ const courses = [
     price: 119.99,
     imageLink: "https://placehold.co/600x400/FF9900/ffffff?text=AWS",
     published: true,
+    featured: true,
     content: [
       {
         title: "EC2 and S3 Basics",
@@ -274,6 +279,7 @@ const courses = [
     price: 159.99,
     imageLink: "https://placehold.co/600x400/546E7A/ffffff?text=Cybersecurity",
     published: true,
+    featured: true,
     content: [
       {
         title: "Network Security Basics",
