@@ -1,6 +1,6 @@
 function LandingPage() {
   return (
-    <div className="min-h-[3000px]">
+    <div>
       <h1>LandingPage</h1>
     </div>
   );
