@@ -11,3 +11,9 @@ export const getCourseById = async (id) => {
   const { data } = await api.get(`/api/courses/${id}`);
   return data;
 };
+
+// Get featured courses
+export const getFeaturedCourses = async () => {
+  const { data } = await api.get("/api/courses?featured=true");
+  return data;
+};

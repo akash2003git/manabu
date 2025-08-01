@@ -1,9 +1,11 @@
 import Hero from "../components/layout/Hero";
+import FeaturedCoursesCarousel from "../components/course/FeatuedCoursesCarousel";
 
 const LandingPage = () => {
   return (
     <>
-      <Hero />;
+      <Hero />
+      <FeaturedCoursesCarousel />
     </>
   );
 };
