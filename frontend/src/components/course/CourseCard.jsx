@@ -1,24 +1,42 @@
-import React from "react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
-const CourseCard = ({ course }) => {
+function CourseCard({ course }) {
   return (
-    <div className="min-w-[345px] bg-background border-accent border-2 text-txt rounded-xl shadow-md p-4 flex flex-col items-center">
+    <motion.div
+      className="flex flex-col rounded-xl bg-altBg p-5 shadow-md"
+      whileHover={{
+        y: -10,
+        scale: 1.02,
+        boxShadow: "0px 10px 15px rgba(233, 140, 68, 0.4)",
+      }}
+      whileTap={{
+        y: 0,
+      }}
+      transition={{ duration: 0.2, ease: "easeOut" }}
+    >
       <img
         src={course.imageLink}
-        alt={course.title}
-        className="w-full h-40 object-cover rounded-lg mb-4"
+        alt="Course Thumbnail"
+        className="rounded-xl"
       />
-      <h3 className="text-lg font-bold mb-2 text-center">{course.title}</h3>
-      <div className="w-full flex justify-between items-center mt-2">
-        <span className="text-green-400 text-lg font-semibold">
-          ${course.price}
-        </span>
-        <button className="bg-accent cursor-pointer text-background font-semibold py-2 px-4 rounded-lg hover:bg-secondary transition-colors">
+      <Link
+        to={`/courses/${course._id || "#"}`}
+        className="text-txt text-lg mt-3 font-bold hover:underline"
+      >
+        {course.title}
+      </Link>
+
+      <div className="flex-1"></div>
+
+      <div className="flex justify-between items-center mt-3">
+        <p className="text-green-300 text-lg">{course.price}$</p>
+        <button className="cursor-pointer px-4 py-2 bg-accent hover:bg-secondary font-bold text-background rounded-xl">
           Enroll
         </button>
       </div>
-    </div>
+    </motion.div>
   );
-};
+}
 
 export default CourseCard;

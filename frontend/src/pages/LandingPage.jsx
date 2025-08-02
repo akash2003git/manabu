@@ -1,11 +1,15 @@
 import Hero from "../components/layout/Hero";
-import FeaturedCoursesCarousel from "../components/course/FeatuedCoursesCarousel";
+import WhyManabu from "../components/layout/WhyManabu";
+import FeaturedCourses from "../components/course/FeaturedCourses";
+import Testimonials from "../components/layout/Testimonials";
 
 const LandingPage = () => {
   return (
     <>
       <Hero />
-      <FeaturedCoursesCarousel />
+      <WhyManabu />
+      <FeaturedCourses />
+      <Testimonials />
     </>
   );
 };

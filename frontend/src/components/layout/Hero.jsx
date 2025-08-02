@@ -48,7 +48,7 @@ const Hero = () => {
           <div className="max-w-4xl text-center">
             {/* Main Quote */}
             <motion.h1
-              className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-wider mb-6"
+              className="text-2xl sm:text-3xl 2xl:text-5xl font-bold leading-tight tracking-wider mb-6"
               variants={fadeUp}
             >
               "The journey of a thousand miles begins with a single step."
@@ -56,7 +56,7 @@ const Hero = () => {
 
             {/* Kanji Element */}
             <motion.p
-              className="font-sans text-5xl sm:text-7xl md:text-8xl font-bold text-gray-400 opacity-70 mb-8"
+              className="font-sans text-5xl md:text-7xl xl:text-8xl font-bold text-gray-400 opacity-70 mb-8"
               variants={fadeUp}
             >
               道
@@ -72,7 +72,7 @@ const Hero = () => {
 
             {/* Animated Button */}
             <motion.button
-              className="text-lg cursor-pointer bg-accent hover:bg-secondary text-txt font-bold py-3 px-8 rounded-full shadow-lg transition-colors duration-300 ease-in-out"
+              className="text-md sm:text-lg cursor-pointer bg-accent hover:bg-secondary text-txt font-bold py-3 px-8 rounded-full shadow-lg transition-colors duration-300 ease-in-out"
               variants={fadeUp}
               whileHover={{
                 scale: 1.08,
