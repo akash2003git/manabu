@@ -11,6 +11,3 @@ export const isUserAuthenticatedAtom = atom(
 export const isAdminAuthenticatdAtom = atom(
   (get) => get(accessTokenAtom) !== null && get(adminAtom) !== null,
 );
-
-export const authLoadingAtom = atom(false);
-export const authErrorAtom = atom(null);

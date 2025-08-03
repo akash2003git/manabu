@@ -3,6 +3,8 @@ import { Provider } from "jotai";
 import { jotaiStore } from "./store/store.js";
 import UserLayout from "./components/layout/UserLayout.jsx";
 import LandingPage from "./pages/LandingPage.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
+import SignupPage from "./pages/SignupPage.jsx";
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
           {/* User Layout */}
           <Route path="/" element={<UserLayout />}>
             <Route index element={<LandingPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<SignupPage />} />
           </Route>
           {/* Admin Layout */}
           <Route path="/admin"></Route>

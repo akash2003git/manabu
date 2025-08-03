@@ -66,10 +66,15 @@ function Navbar() {
         <div className="hidden lg:flex items-center space-x-3 text-md">
           {isUserAuthenticated ? (
             <>
-              <Link to="/my-courses">My Courses</Link>
+              <Link
+                to="/my-courses"
+                className="hover:text-primary hover:underline transition-colors duration-300 text-lg"
+              >
+                My Courses
+              </Link>
               <button
                 onClick={handleLogout}
-                className="border-accent border-2 px-3 py-1 rounded-3xl hover:bg-gray-900 transition-colors duration-300"
+                className="cursor-pointer font-bold border-accent border-1 px-4 py-1 rounded-3xl hover:bg-accent/15 transition-colors duration-300"
               >
                 Logout
               </button>
@@ -131,7 +136,12 @@ function Navbar() {
             </Link>
             {isUserAuthenticated ? (
               <>
-                <button onClick={handleLogout}>Logout</button>
+                <button
+                  onClick={handleLogout}
+                  className="cursor-pointer hover:underline hover:text-primary transition-colors duration-300"
+                >
+                  Logout
+                </button>
                 <Link
                   to="/my-courses"
                   className="hover:underline hover:text-primary transition-colors duration-300"
