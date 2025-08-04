@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-function CourseCard({ course, description }) {
+function CourseCard({ course, description, purchased }) {
   return (
     <motion.div
       className="flex flex-col rounded-xl bg-altBg p-5 shadow-md"
@@ -33,12 +33,14 @@ function CourseCard({ course, description }) {
 
       <div className="flex-1"></div>
 
-      <div className="flex justify-between items-center mt-3">
-        <p className="text-green-300 text-lg">{course.price}$</p>
-        <button className="cursor-pointer px-4 py-2 bg-accent hover:bg-secondary font-bold text-background rounded-xl">
-          Enroll
-        </button>
-      </div>
+      {!purchased && (
+        <div className="flex justify-between items-center mt-3">
+          <p className="text-green-300 text-lg">{course.price}$</p>
+          <button className="cursor-pointer px-4 py-2 bg-accent hover:bg-secondary font-bold text-background rounded-xl">
+            Enroll
+          </button>
+        </div>
+      )}
     </motion.div>
   );
 }

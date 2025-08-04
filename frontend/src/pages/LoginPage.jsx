@@ -31,8 +31,8 @@ function LoginPage() {
 
     try {
       const data = await loginUser({ inputEmail, inputPassword });
-      const { _id, username, email, accessToken } = data;
-      setUser({ _id, username, email });
+      const { _id, username, email, purchasedCourses, accessToken } = data;
+      setUser({ _id, username, email, purchasedCourses });
       setAccessToken(accessToken);
     } catch (error) {
       if (error.response?.data?.errors?.length > 0) {
