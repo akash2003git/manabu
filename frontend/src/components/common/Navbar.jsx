@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   AcademicCapIcon,
   Bars3Icon,
@@ -21,6 +21,7 @@ function Navbar() {
   const setUserAtom = useSetAtom(userAtom);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef(null);
 
   const handleMenu = () => setIsMenuOpen((preValue) => !preValue);
 
@@ -30,6 +31,26 @@ function Navbar() {
     navigate("/");
     setIsMenuOpen(false);
   };
+
+  // Close menu on route change
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location.pathname]);
+
+  // Close menu if clicked outside
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (
+        isMenuOpen &&
+        menuRef.current &&
+        !menuRef.current.contains(e.target)
+      ) {
+        setIsMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isMenuOpen]);
 
   return (
     <div className="absolute top-0 left-0 w-full z-50">
@@ -110,6 +131,7 @@ function Navbar() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
+            ref={menuRef}
             initial={{ height: 0 }}
             animate={{ height: "auto" }}
             exit={{ height: 0 }}

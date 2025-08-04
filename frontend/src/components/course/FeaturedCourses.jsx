@@ -70,8 +70,8 @@ function FeaturedCourses() {
         variants={fadeUp}
         className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 gap-5 xl:gap-8"
       >
-        {featuredCourses.map((course, idx) => (
-          <CourseCard key={idx} course={course} />
+        {featuredCourses.map((course) => (
+          <CourseCard key={course._id} course={course} />
         ))}
       </motion.div>
     </motion.div>

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-function CourseCard({ course }) {
+function CourseCard({ course, description }) {
   return (
     <motion.div
       className="flex flex-col rounded-xl bg-altBg p-5 shadow-md"
@@ -22,10 +22,14 @@ function CourseCard({ course }) {
       />
       <Link
         to={`/courses/${course._id || "#"}`}
-        className="text-txt text-lg mt-3 font-bold hover:underline"
+        className="text-txt text-lg mt-3 font-bold hover:underline line-clamp-2"
       >
         {course.title}
       </Link>
+
+      {description && (
+        <p className="text-txt mt-1 line-clamp-2">{course.description}</p>
+      )}
 
       <div className="flex-1"></div>
 
