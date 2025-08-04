@@ -63,6 +63,7 @@ const loginUser = async (req, res) => {
         _id: user._id,
         username: user.username,
         email: user.email,
+        purchasedCourses: user.purchasedCourses,
         accessToken,
         message: "User logged-in successfully",
       });
