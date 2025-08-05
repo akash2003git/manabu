@@ -126,7 +126,9 @@ function CoursePage() {
 
           {access === "purchased" ? null : access === "guest" ? (
             <button
-              onClick={() => navigate("/login")}
+              onClick={() =>
+                navigate("/login", { state: { from: `/courses/${courseId}` } })
+              }
               className="cursor-pointer px-4 py-2 bg-accent hover:bg-secondary font-bold text-background rounded-xl w-full sm:w-auto"
             >
               Login to Purchase

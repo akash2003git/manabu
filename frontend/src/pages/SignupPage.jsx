@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { signupUser } from "../api/authApi";
 import {
@@ -19,6 +19,9 @@ function SignupPage() {
   const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
+
+  const location = useLocation();
+  const from = location.state?.from || "/";
 
   const [, setAccessToken] = useAtom(accessTokenAtom);
   const [, setUser] = useAtom(userAtom);
@@ -64,9 +67,9 @@ function SignupPage() {
 
   useEffect(() => {
     if (isUserAuthenticated) {
-      navigate("/");
+      navigate(from, { replace: true });
     }
-  }, [isUserAuthenticated, navigate]);
+  }, [isUserAuthenticated, navigate, from]);
 
   useEffect(() => {
     setAuthError("");
