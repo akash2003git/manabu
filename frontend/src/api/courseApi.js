@@ -25,7 +25,16 @@ export const getCourseContent = async (id) => {
 };
 
 // Purchase course
+// export const purchaseCourse = async (courseId) => {
+//   const { data } = await api.post("/api/user/purchaseCourse", { courseId });
+//   return data;
+// };
+
+// Purchase course with Stripe
 export const purchaseCourse = async (courseId) => {
-  const { data } = await api.post("/api/user/purchaseCourse", { courseId });
-  return data;
+  const { data } = await api.post("/api/payment/create-checkout-session", {
+    courseId,
+  });
+  // Stripe checkout URL is returned by backend
+  window.location.href = data.url;
 };

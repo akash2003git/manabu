@@ -35,23 +35,35 @@ function CoursePage() {
     setAccess("guest");
   }, [courseId]);
 
+  // const handlePurchase = async () => {
+  //   try {
+  //     setPurchasing(true);
+  //     await purchaseCourse(courseId);
+  //
+  //     const updatedUser = await getMe();
+  //     setUser(updatedUser);
+  //
+  //     setAccess("purchased");
+  //     const content = await getCourseContent(courseId);
+  //     setCourseContent(content);
+  //     setHasFetchedContent(true);
+  //
+  //     // Smooth scroll to course content
+  //     document
+  //       .getElementById("course-content")
+  //       ?.scrollIntoView({ behavior: "smooth" });
+  //   } catch (err) {
+  //     console.error(err);
+  //     alert(err.response?.data?.message || "Purchase failed");
+  //   } finally {
+  //     setPurchasing(false);
+  //   }
+  // };
+
   const handlePurchase = async () => {
     try {
       setPurchasing(true);
-      await purchaseCourse(courseId);
-
-      const updatedUser = await getMe();
-      setUser(updatedUser);
-
-      setAccess("purchased");
-      const content = await getCourseContent(courseId);
-      setCourseContent(content);
-      setHasFetchedContent(true);
-
-      // Smooth scroll to course content
-      document
-        .getElementById("course-content")
-        ?.scrollIntoView({ behavior: "smooth" });
+      await purchaseCourse(courseId); // this will redirect to Stripe Checkout
     } catch (err) {
       console.error(err);
       alert(err.response?.data?.message || "Purchase failed");

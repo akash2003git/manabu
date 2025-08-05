@@ -27,8 +27,8 @@ const createCheckoutSession = async (req, res) => {
           quantity: 1,
         },
       ],
-      success_url: `${process.env.FRONTEND_URL}/payment-success?courseId=${courseId}`,
-      cancel_url: `${process.env.FRONTEND_URL}/courses/${courseId}`,
+      success_url: `${process.env.FRONTEND_URL}/payment-success?session_id={CHECKOUT_SESSION_ID}&courseId=${courseId}`,
+      cancel_url: `${process.env.FRONTEND_URL}/payment-failed?courseId=${courseId}`,
       metadata: { courseId, userId: req.user.id },
     });
 
@@ -68,4 +68,25 @@ const handleStripeWebhook = async (req, res) => {
   res.json({ received: true });
 };
 
-module.exports = { createCheckoutSession, handleStripeWebhook };
+const verifyCheckoutSession = async (req, res) => {
+  try {
+    const { sessionId } = req.query;
+
+    const session = await stripe.checkout.sessions.retrieve(sessionId);
+
+    if (session.payment_status === "paid") {
+      return res.json({ success: true });
+    }
+
+    return res.json({ success: false, status: session.payment_status });
+  } catch (error) {
+    console.error("Stripe verify error:", error);
+    res.status(500).json({ message: "Unable to verify payment session" });
+  }
+};
+
+module.exports = {
+  createCheckoutSession,
+  handleStripeWebhook,
+  verifyCheckoutSession,
+};

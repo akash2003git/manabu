@@ -1,5 +1,8 @@
 const express = require("express");
-const { createCheckoutSession } = require("../controllers/paymentController");
+const {
+  createCheckoutSession,
+  verifyCheckoutSession,
+} = require("../controllers/paymentController");
 const { authenticateUser } = require("../middleware/authMiddleware");
 
 const router = express.Router();
@@ -10,5 +13,7 @@ router.post(
   authenticateUser,
   createCheckoutSession,
 );
+
+router.get("/verify-session", verifyCheckoutSession);
 
 module.exports = router;
