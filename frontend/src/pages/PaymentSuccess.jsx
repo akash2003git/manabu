@@ -1,12 +1,16 @@
 import { useEffect, useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import api from "../api/axiosInstance";
+import { useSetAtom } from "jotai";
+import { userAtom } from "../store/store";
+import { getMe } from "../api/userApi";
 
 function PaymentSuccess() {
   const [status, setStatus] = useState("verifying");
   const [message, setMessage] = useState("");
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
+  const setUser = useSetAtom(userAtom);
 
   useEffect(() => {
     const verifyPayment = async () => {
@@ -23,6 +27,10 @@ function PaymentSuccess() {
           `/api/payment/verify-session?sessionId=${sessionId}`,
         );
         if (data.success) {
+          // Update user atom with latest user data
+          const updatedUser = await getMe();
+          setUser(updatedUser);
+
           setStatus("success");
           setMessage("Payment successful! Redirecting...");
           setTimeout(() => navigate("/my-courses"), 2000);
