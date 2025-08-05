@@ -6,9 +6,7 @@ const { purchaseCourseSchema } = require("../validations/zodSchemas");
 const getMe = async (req, res) => {
   try {
     // req.user is available because of the authenticateJwt middleware
-    const user = await User.findById(req.user.id)
-      .select("-password")
-      .populate("purchasedCourses");
+    const user = await User.findById(req.user.id).select("-password");
     if (!user) {
       return res.status(404).json({ message: "User not found." });
     }

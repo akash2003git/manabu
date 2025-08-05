@@ -72,7 +72,7 @@ function MyCoursesPage() {
               key={course._id}
               course={course}
               description
-              purchased
+              disablePriceAndButton
             />
           ))
         ) : (

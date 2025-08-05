@@ -43,7 +43,9 @@ const getCourses = async (req, res) => {
     }
     // if ?featured=false => find({})
     // if ?featured=true => find({featured: true})
-    const courses = await Course.find(filter).sort({ createdAt: -1 });
+    const courses = await Course.find(filter)
+      .select("-content")
+      .sort({ createdAt: -1 });
     res.status(200).json(courses);
   } catch (error) {
     console.error("Server error fetching courses:", error);
@@ -56,11 +58,24 @@ const getCourses = async (req, res) => {
 const getCourseById = async (req, res) => {
   try {
     const courseId = req.params.id;
-    const course = await Course.findById(courseId);
+    const course = await Course.findById(courseId).lean();
     if (!course) {
       return res.status(404).json({ message: "Course not found!" });
     }
-    res.status(200).json(course);
+
+    let response = { ...course };
+
+    // If user is authenticated and has purchased then return full content
+    if (req.user && req.user.purchasedCourses.includes(courseId)) {
+      return res.status(200).json(response);
+    }
+
+    // Otherwise only return course info with lesson titles
+    response.content = course.content.map((item) => ({
+      title: item.title,
+    }));
+
+    res.status(200).json(response);
   } catch (error) {
     console.error("Server error fetching course:", error);
     res.status(500).json({

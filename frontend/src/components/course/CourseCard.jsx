@@ -1,7 +1,15 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useAtomValue } from "jotai";
+import { userAtom } from "../../store/store";
+import { useNavigate } from "react-router-dom";
 
-function CourseCard({ course, description, purchased }) {
+function CourseCard({ course, description, disablePriceAndButton, purchased }) {
+  const user = useAtomValue(userAtom);
+  const hasPurchased =
+    purchased || user?.purchasedCourses?.includes(course._id);
+  const navigate = useNavigate();
+
   return (
     <motion.div
       className="flex flex-col rounded-xl bg-altBg p-5 shadow-md"
@@ -33,12 +41,23 @@ function CourseCard({ course, description, purchased }) {
 
       <div className="flex-1"></div>
 
-      {!purchased && (
+      {!disablePriceAndButton && (
         <div className="flex justify-between items-center mt-3">
-          <p className="text-green-300 text-lg">{course.price}$</p>
-          <button className="cursor-pointer px-4 py-2 bg-accent hover:bg-secondary font-bold text-background rounded-xl">
-            Enroll
-          </button>
+          {hasPurchased ? (
+            <p className="text-green-400 text-sm font-semibold">
+              Already Purchased
+            </p>
+          ) : (
+            <>
+              <p className="text-green-300 text-lg">{course.price}$</p>
+              <button
+                onClick={() => navigate(`/courses/${course._id}`)}
+                className="cursor-pointer px-4 py-2 bg-accent hover:bg-secondary font-bold text-background rounded-xl"
+              >
+                Enroll
+              </button>
+            </>
+          )}
         </div>
       )}
     </motion.div>

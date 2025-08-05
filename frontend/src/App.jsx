@@ -8,6 +8,7 @@ import SignupPage from "./pages/SignupPage.jsx";
 import CoursesPage from "./pages/CoursesPage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
 import MyCoursesPage from "./pages/MyCoursesPage.jsx";
+import CoursePage from "./pages/CoursePage.jsx";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/courses" element={<CoursesPage />} />
+            <Route path="/courses/:courseId" element={<CoursePage />} />
             <Route path="/my-courses" element={<MyCoursesPage />} />
             <Route path="/about" element={<AboutPage />} />
           </Route>

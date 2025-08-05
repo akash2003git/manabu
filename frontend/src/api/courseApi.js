@@ -17,3 +17,15 @@ export const getFeaturedCourses = async () => {
   const { data } = await api.get("/api/courses?featured=true");
   return data;
 };
+
+// Get course content
+export const getCourseContent = async (id) => {
+  const { data } = await api.get(`/api/courses/${id}/content`);
+  return data;
+};
+
+// Purchase course
+export const purchaseCourse = async (courseId) => {
+  const { data } = await api.post("/api/user/purchaseCourse", { courseId });
+  return data;
+};
