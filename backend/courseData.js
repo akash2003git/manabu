@@ -4,7 +4,8 @@ const courses = [
     description:
       "A complete beginner's guide to HTML, CSS, and JavaScript. Learn to build your first website from scratch.",
     price: 49.99,
-    imageLink: "https://placehold.co/600x400/94A3B8/ffffff?text=Web+Dev",
+    imageLink:
+      "https://res.cloudinary.com/dqpl3oz88/image/upload/v1754503660/intro_to_webdev_isqw1b.png",
     published: true,
     content: [
       {
@@ -25,7 +26,8 @@ const courses = [
     description:
       "Master the fundamentals of React, from components and state to hooks and routing.",
     price: 79.99,
-    imageLink: "https://placehold.co/600x400/22C55E/ffffff?text=React",
+    imageLink:
+      "https://res.cloudinary.com/dqpl3oz88/image/upload/v1754503654/react_gcnjpd.png",
     published: true,
     featured: true,
     content: [
@@ -46,7 +48,8 @@ const courses = [
     description:
       "Build robust and scalable REST APIs using Node.js and the Express framework.",
     price: 99.99,
-    imageLink: "https://placehold.co/600x400/3B82F6/ffffff?text=Node.js",
+    imageLink:
+      "https://res.cloudinary.com/dqpl3oz88/image/upload/v1754503657/node_gwsiy5.png",
     published: true,
     featured: true,
     content: [
@@ -68,7 +71,8 @@ const courses = [
     description:
       "Dive deep into modern CSS features, including Sass, CSS Grid, and sophisticated animations.",
     price: 65.0,
-    imageLink: "https://placehold.co/600x400/E9D5FF/000000?text=Advanced+CSS",
+    imageLink:
+      "https://res.cloudinary.com/dqpl3oz88/image/upload/v1754503654/css_hhw4k6.png",
     published: true,
     content: [
       {
@@ -88,7 +92,8 @@ const courses = [
     description:
       "Improve your problem-solving skills and prepare for technical interviews.",
     price: 89.99,
-    imageLink: "https://placehold.co/600x400/FACC15/000000?text=DSA",
+    imageLink:
+      "https://res.cloudinary.com/dqpl3oz88/image/upload/v1754503654/dsa_py_ejkmrb.png",
     published: true,
     featured: true,
     content: [
@@ -109,7 +114,8 @@ const courses = [
     description:
       "Learn the core concepts of machine learning with hands-on Python projects.",
     price: 129.99,
-    imageLink: "https://placehold.co/600x400/EF4444/ffffff?text=ML",
+    imageLink:
+      "https://res.cloudinary.com/dqpl3oz88/image/upload/v1754503661/ml_f2hml9.png",
     published: true,
     featured: true,
     content: [
@@ -131,7 +137,8 @@ const courses = [
     description:
       "Build a complete e-commerce application using MongoDB, Express, React, and Node.js.",
     price: 149.99,
-    imageLink: "https://placehold.co/600x400/F97316/ffffff?text=MERN",
+    imageLink:
+      "https://res.cloudinary.com/dqpl3oz88/image/upload/v1754503661/e_comm_tcxt91.png",
     published: true,
     content: [
       {
@@ -151,7 +158,8 @@ const courses = [
     description:
       "Learn how to containerize your applications for easy deployment and scalability.",
     price: 69.99,
-    imageLink: "https://placehold.co/600x400/06B6D4/ffffff?text=Docker",
+    imageLink:
+      "https://res.cloudinary.com/dqpl3oz88/image/upload/v1754503656/docker_wp62rl.png",
     published: true,
     content: [
       {
@@ -166,7 +174,8 @@ const courses = [
     description:
       "A practical guide to using Python libraries like Pandas, NumPy, and Matplotlib for data analysis.",
     price: 109.99,
-    imageLink: "https://placehold.co/600x400/1D4ED8/ffffff?text=Data+Science",
+    imageLink:
+      "https://res.cloudinary.com/dqpl3oz88/image/upload/v1754503656/data_science_py_fx8llu.png",
     published: true,
     content: [
       {
@@ -186,7 +195,8 @@ const courses = [
     description:
       "Build powerful and flexible APIs using GraphQL, with a focus on Apollo Server and Client.",
     price: 89.99,
-    imageLink: "https://placehold.co/600x400/9333EA/ffffff?text=GraphQL",
+    imageLink:
+      "https://res.cloudinary.com/dqpl3oz88/image/upload/v1754503660/graphql_kzzjvn.png",
     published: true,
     content: [
       {
@@ -201,7 +211,8 @@ const courses = [
     description:
       "Master best practices for writing readable, maintainable, and scalable code.",
     price: 59.99,
-    imageLink: "https://placehold.co/600x400/8B5CF6/ffffff?text=Clean+Code",
+    imageLink:
+      "https://res.cloudinary.com/dqpl3oz88/image/upload/v1754503658/clean_code_kxzwcy.png",
     published: true,
     content: [
       {
@@ -216,7 +227,8 @@ const courses = [
     description:
       "A hands-on introduction to essential Amazon Web Services for deploying and managing applications.",
     price: 119.99,
-    imageLink: "https://placehold.co/600x400/FF9900/ffffff?text=AWS",
+    imageLink:
+      "https://res.cloudinary.com/dqpl3oz88/image/upload/v1754503660/aws_uq55hp.png",
     published: true,
     featured: true,
     content: [
@@ -242,7 +254,8 @@ const courses = [
     content: [
       {
         title: "React Native Basics",
-        videoUrl: "https://www.youtube.com/watch?v=fJ4pL8yHh_8",
+        videoUrl:
+          "https://res.cloudinary.com/dqpl3oz88/image/upload/v1754503654/react_native_ktldqu.png",
         description: "Introduction to components, styling, and navigation.",
       },
       {
@@ -257,7 +270,8 @@ const courses = [
     description:
       "Master the fundamentals of SQL for managing and querying relational databases.",
     price: 75.0,
-    imageLink: "https://placehold.co/600x400/4CAF50/ffffff?text=SQL",
+    imageLink:
+      "https://res.cloudinary.com/dqpl3oz88/image/upload/v1754503654/sql_occsow.png",
     published: true,
     content: [
       {
@@ -277,7 +291,8 @@ const courses = [
     description:
       "An introduction to the principles of cybersecurity, from network security to ethical hacking.",
     price: 159.99,
-    imageLink: "https://placehold.co/600x400/546E7A/ffffff?text=Cybersecurity",
+    imageLink:
+      "https://res.cloudinary.com/dqpl3oz88/image/upload/v1754503657/cyber_security_fundamentals_co4kpp.png",
     published: true,
     featured: true,
     content: [
@@ -299,7 +314,8 @@ const courses = [
     description:
       "Learn to deploy and manage applications on the Microsoft Azure cloud platform.",
     price: 125.0,
-    imageLink: "https://placehold.co/600x400/0078D4/ffffff?text=Azure",
+    imageLink:
+      "https://res.cloudinary.com/dqpl3oz88/image/upload/v1754503659/azure_ofdibd.png",
     published: true,
     content: [
       {
@@ -319,7 +335,8 @@ const courses = [
     description:
       "Go beyond the basics with Django and Flask to build powerful web applications.",
     price: 115.0,
-    imageLink: "https://placehold.co/600x400/4B5563/ffffff?text=Python+Backend",
+    imageLink:
+      "https://res.cloudinary.com/dqpl3oz88/image/upload/v1754503658/backend_py_ta5gwg.png",
     published: true,
     content: [
       {
@@ -339,7 +356,8 @@ const courses = [
     description:
       "Learn the principles of creating user-friendly interfaces and engaging experiences.",
     price: 45.0,
-    imageLink: "https://placehold.co/600x400/D3D3D3/000000?text=UI%2FUX",
+    imageLink:
+      "https://res.cloudinary.com/dqpl3oz88/image/upload/v1754503654/ui_ux_wsevo4.png",
     published: true,
     content: [
       {
@@ -359,7 +377,8 @@ const courses = [
     description:
       "An introductory course to the world of decentralized technology and digital currencies.",
     price: 189.99,
-    imageLink: "https://placehold.co/600x400/5850A2/ffffff?text=Blockchain",
+    imageLink:
+      "https://res.cloudinary.com/dqpl3oz88/image/upload/v1754503658/blockchain_gpjdnw.png",
     published: false,
     content: [
       {
@@ -380,7 +399,8 @@ const courses = [
     description:
       "Create your own 2D and 3D games with the popular Unity game engine.",
     price: 135.0,
-    imageLink: "https://placehold.co/600x400/000000/ffffff?text=Unity",
+    imageLink:
+      "https://res.cloudinary.com/dqpl3oz88/image/upload/v1754503654/unity_relt6l.png",
     published: true,
     content: [
       {
