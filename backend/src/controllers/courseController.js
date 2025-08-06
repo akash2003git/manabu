@@ -46,9 +46,14 @@ const getCourses = async (req, res) => {
   try {
     const { featured } = req.query;
     const filter = {};
+    // Admin can see everything, users only see published
+    if (req.user?.role !== "admin") {
+      filter.published = true;
+    }
     if (featured === "true") {
       filter.featured = true;
     }
+
     // if ?featured=false => find({})
     // if ?featured=true => find({featured: true})
     const courses = await Course.find(filter)
@@ -67,18 +72,29 @@ const getCourseById = async (req, res) => {
   try {
     const courseId = req.params.id;
     const course = await Course.findById(courseId).lean();
+
     if (!course) {
       return res.status(404).json({ message: "Course not found!" });
     }
 
+    const isAdmin = req.user?.role === "admin";
+    const hasPurchased = req.user?.purchasedCourses?.includes(courseId);
+
+    // If course is not published and user is neither admin nor purchaser => deny
+    if (!course.published && !isAdmin && !hasPurchased) {
+      return res
+        .status(403)
+        .json({ message: "This course is not yet published!" });
+    }
+
     let response = { ...course };
 
-    // If user is authenticated and has purchased then return full content
-    if (req.user && req.user.purchasedCourses.includes(courseId)) {
+    // If admin OR purchaser => full course content
+    if (isAdmin || hasPurchased) {
       return res.status(200).json(response);
     }
 
-    // Otherwise only return course info with lesson titles
+    // Otherwise (guest or normal user without purchase) => only titles
     response.content = course.content.map((item) => ({
       title: item.title,
     }));
@@ -87,7 +103,7 @@ const getCourseById = async (req, res) => {
   } catch (error) {
     console.error("Server error fetching course:", error);
     res.status(500).json({
-      message: "Server error fetching course:",
+      message: "Server error fetching course",
       error: error.message,
     });
   }

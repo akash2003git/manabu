@@ -7,13 +7,19 @@ const {
   updateCourse,
   deleteCourse,
 } = require("../controllers/courseController");
-const { authenticateAdmin } = require("../middleware/authMiddleware");
+const {
+  authenticateAdmin,
+  attachUserIfAuthenticated,
+} = require("../middleware/authMiddleware");
 
-router.route("/").get(getCourses).post(authenticateAdmin, createCourse);
+router
+  .route("/")
+  .get(attachUserIfAuthenticated, getCourses)
+  .post(authenticateAdmin, createCourse);
 
 router
   .route("/:id")
-  .get(getCourseById)
+  .get(attachUserIfAuthenticated, getCourseById)
   .put(authenticateAdmin, updateCourse)
   .delete(authenticateAdmin, deleteCourse);
 

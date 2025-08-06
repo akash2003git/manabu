@@ -1,14 +1,28 @@
 import api from "./axiosInstance";
 
 // Get all courses
-export const getCourses = async () => {
-  const { data } = await api.get("/api/courses");
+export const getCourses = async (query = "") => {
+  const adminToken = localStorage.getItem("adminToken");
+  const headers = {};
+
+  if (adminToken) {
+    headers.Authorization = `Bearer ${adminToken.replace(/"/g, "")}`;
+  }
+
+  const { data } = await api.get(`/api/courses${query}`, { headers });
   return data;
 };
 
 // Get a single course by ID
 export const getCourseById = async (id) => {
-  const { data } = await api.get(`/api/courses/${id}`);
+  const adminToken = localStorage.getItem("adminToken");
+  const headers = {};
+
+  if (adminToken) {
+    headers.Authorization = `Bearer ${adminToken.replace(/"/g, "")}`;
+  }
+
+  const { data } = await api.get(`/api/courses/${id}`, { headers });
   return data;
 };
 
