@@ -11,10 +11,17 @@ const api = axios.create({
 
 api.interceptors.request.use(
   (config) => {
+    const adminToken = localStorage.getItem("adminToken");
     const accessToken = localStorage.getItem("accessToken");
-    if (accessToken) {
+
+    if (config.url.startsWith("/admin")) {
+      if (adminToken) {
+        config.headers.Authorization = `Bearer ${adminToken.replace(/"/g, "")}`;
+      }
+    } else if (accessToken) {
       config.headers.Authorization = `Bearer ${accessToken.replace(/"/g, "")}`;
     }
+
     return config;
   },
   (error) => Promise.reject(error),

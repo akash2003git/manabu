@@ -22,3 +22,26 @@ export const signupUser = async ({
   });
   return data;
 };
+
+// Login user
+export const loginAdmin = async ({ inputEmail, inputPassword }) => {
+  const { data } = await api.post("/api/admin/login", {
+    email: inputEmail,
+    password: inputPassword,
+  });
+  return data;
+};
+
+// Signup user
+export const signupAdmin = async ({
+  inputUsername,
+  inputEmail,
+  inputPassword,
+}) => {
+  const { data } = await api.post("/api/admin/signup", {
+    username: inputUsername,
+    email: inputEmail,
+    password: inputPassword,
+  });
+  return data;
+};

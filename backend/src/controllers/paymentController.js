@@ -68,25 +68,7 @@ const handleStripeWebhook = async (req, res) => {
   res.json({ received: true });
 };
 
-const verifyCheckoutSession = async (req, res) => {
-  try {
-    const { sessionId } = req.query;
-
-    const session = await stripe.checkout.sessions.retrieve(sessionId);
-
-    if (session.payment_status === "paid") {
-      return res.json({ success: true });
-    }
-
-    return res.json({ success: false, status: session.payment_status });
-  } catch (error) {
-    console.error("Stripe verify error:", error);
-    res.status(500).json({ message: "Unable to verify payment session" });
-  }
-};
-
 module.exports = {
   createCheckoutSession,
   handleStripeWebhook,
-  verifyCheckoutSession,
 };
