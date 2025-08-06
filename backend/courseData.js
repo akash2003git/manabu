@@ -249,13 +249,13 @@ const courses = [
     description:
       "Build cross-platform mobile apps for iOS and Android using a single codebase.",
     price: 139.99,
-    imageLink: "https://placehold.co/600x400/60A5FA/ffffff?text=React+Native",
+    imageLink:
+      "https://res.cloudinary.com/dqpl3oz88/image/upload/v1754503654/react_native_ktldqu.png",
     published: true,
     content: [
       {
         title: "React Native Basics",
-        videoUrl:
-          "https://res.cloudinary.com/dqpl3oz88/image/upload/v1754503654/react_native_ktldqu.png",
+        videoUrl: "https://www.youtube.com/watch?v=f9d6M28_9b4",
         description: "Introduction to components, styling, and navigation.",
       },
       {
