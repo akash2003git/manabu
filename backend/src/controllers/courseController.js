@@ -1,19 +1,27 @@
 const { z } = require("zod");
 const Course = require("../models/Course");
 const { createCourseSchema } = require("../validations/zodSchemas.js");
+const User = require("../models/User");
 
 const createCourse = async (req, res) => {
   try {
     const { title, description, price, imageLink, published, featured } =
       createCourseSchema.parse(req.body);
+
+    // Generate placeholder text from title (take first 3 words)
+    const placeholderText = title.split(" ").slice(0, 3).join("+");
+
     const course = await Course.create({
       title,
       description,
       price,
-      imageLink,
+      imageLink:
+        imageLink ||
+        `https://placehold.co/600x400/120D09/ffffff?text=${placeholderText}`,
       published,
       featured: featured || false,
     });
+
     res.status(201).json({ message: "Course create successfully!", course });
   } catch (error) {
     if (error instanceof z.ZodError) {
@@ -132,6 +140,13 @@ const deleteCourse = async (req, res) => {
     if (!deletedCourse) {
       return res.status(404).json({ message: "Course not found!" });
     }
+
+    // Remove course reference from all users who purchased it
+    await User.updateMany(
+      { purchasedCourses: courseId },
+      { $pull: { purchasedCourses: courseId } },
+    );
+
     res.status(200).json({ message: "Course deleted successfully!" });
   } catch (error) {
     console.error("Server error deleting course:", error);

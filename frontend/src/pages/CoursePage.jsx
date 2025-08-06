@@ -5,9 +5,8 @@ import {
   getCourseContent,
   purchaseCourse,
 } from "../api/courseApi";
-import { getMe } from "../api/userApi";
 import { isUserAuthenticatedAtom, userAtom } from "../store/store";
-import { useAtom, useAtomValue } from "jotai";
+import { useAtomValue } from "jotai";
 import { useHydrated } from "../hooks/useHydrated";
 import { CourseContentList } from "../components/course/CourseContentList";
 
@@ -25,7 +24,7 @@ function CoursePage() {
   const hydrated = useHydrated();
 
   const isUserAuthenticated = useAtomValue(isUserAuthenticatedAtom);
-  const [user, setUser] = useAtom(userAtom);
+  const user = useAtomValue(userAtom);
 
   // Reset states when courseId changes
   useEffect(() => {
@@ -67,7 +66,6 @@ function CoursePage() {
     } catch (err) {
       console.error(err);
       alert(err.response?.data?.message || "Purchase failed");
-    } finally {
       setPurchasing(false);
     }
   };

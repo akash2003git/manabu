@@ -1,8 +1,9 @@
 import { userAtom, isUserAuthenticatedAtom } from "../store/store";
-import { useAtomValue } from "jotai";
+import { useAtomValue, useSetAtom } from "jotai";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getCourseById } from "../api/courseApi";
+import { getMe } from "../api/userApi";
 import { useHydrated } from "../hooks/useHydrated";
 import CourseCard from "../components/course/CourseCard";
 
@@ -13,6 +14,7 @@ function MyCoursesPage() {
 
   const isUserAuthenticated = useAtomValue(isUserAuthenticatedAtom);
   const user = useAtomValue(userAtom);
+  const setUser = useSetAtom(userAtom);
 
   const navigate = useNavigate();
   const hydrated = useHydrated();
@@ -30,6 +32,10 @@ function MyCoursesPage() {
 
     async function fetchMyCourses() {
       try {
+        // Refresh the user data from backend
+        const updatedUser = await getMe();
+        setUser(updatedUser);
+
         if (!user?.purchasedCourses?.length) {
           setMyCourses([]);
           return;
@@ -52,7 +58,7 @@ function MyCoursesPage() {
     return () => {
       isMounted = false;
     };
-  }, [hydrated, isUserAuthenticated, user, navigate]);
+  }, [hydrated, isUserAuthenticated, setUser, navigate]);
 
   if (!hydrated) return <p className="text-center mt-[150px]">Loading...</p>;
 

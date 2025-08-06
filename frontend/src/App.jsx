@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { Navigate, BrowserRouter, Routes, Route } from "react-router-dom";
 import { Provider } from "jotai";
 import { jotaiStore } from "./store/store.js";
 import ProtectedUserRoute from "./components/layout/ProtectedUserRoute.jsx";
@@ -15,8 +15,11 @@ import PaymentFailed from "./pages/PaymentFailed";
 import ProtectedAdminRoute from "./components/admin/ProtectedAdminLayout.jsx";
 import AdminLayout from "./components/admin/AdminLayout.jsx";
 import AdminLoginPage from "./pages/AdminLoginPage.jsx";
-import AdminSignupPage from "./pages/AdminSignupPage.jsx";
 import AdminCoursesPage from "./pages/AdminCoursesPage.jsx";
+import AddCoursePage from "./pages/AddCoursePage.jsx";
+import AdminUsersPage from "./pages/AdminUsersPage.jsx";
+import AdminCoursePage from "./pages/AdminCoursePage.jsx";
+import EditCoursePage from "./pages/EditCoursePage.jsx";
 
 function App() {
   return (
@@ -43,16 +46,15 @@ function App() {
           <Route path="/admin/login" element={<AdminLoginPage />} />
           <Route path="/admin" element={<ProtectedAdminRoute />}>
             <Route element={<AdminLayout />}>
+              <Route index element={<Navigate to="courses" replace />} />
               <Route path="courses" element={<AdminCoursesPage />} />
-              {/* <Route path="courses/add" element={<AdminAddCoursePage />} /> */}
-              {/* <Route */}
-              {/*   path="courses/:courseId/edit" */}
-              {/*   element={<AdminEditCoursePage />} */}
-              {/* /> */}
-              {/* <Route */}
-              {/*   path="courses/:courseId/content" */}
-              {/*   element={<AdminCourseContentPage />} */}
-              {/* /> */}
+              <Route path="courses/create" element={<AddCoursePage />} />
+              <Route path="courses/:courseId" element={<AdminCoursePage />} />
+              <Route
+                path="courses/:courseId/edit"
+                element={<EditCoursePage />}
+              />
+              <Route path="users" element={<AdminUsersPage />} />
             </Route>
           </Route>
         </Routes>

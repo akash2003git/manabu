@@ -12,6 +12,47 @@ export const getCourseById = async (id) => {
   return data;
 };
 
+// Create a course
+export const createCourse = async (courseData) => {
+  const adminToken = localStorage.getItem("adminToken");
+  if (!adminToken) {
+    throw new Error("Admin not authenticated");
+  }
+  const { data } = await api.post("/api/courses", courseData, {
+    headers: {
+      Authorization: `Bearer ${adminToken.replace(/"/g, "")}`,
+    },
+  });
+  return data;
+};
+
+// Update a course
+export const updateCourse = async (id, updatedCourse) => {
+  const adminToken = localStorage.getItem("adminToken");
+  if (!adminToken) throw new Error("Admin not authenticated");
+
+  const { data } = await api.put(`/api/courses/${id}`, updatedCourse, {
+    headers: {
+      Authorization: `Bearer ${adminToken?.replace(/"/g, "")}`,
+    },
+  });
+  return data;
+};
+
+// Delete a course
+export const deleteCourse = async (id) => {
+  const adminToken = localStorage.getItem("adminToken");
+  if (!adminToken) {
+    throw new Error("Admin not authenticated");
+  }
+  const { data } = await api.delete(`/api/courses/${id}`, {
+    headers: {
+      Authorization: `Bearer ${adminToken?.replace(/"/g, "")}`,
+    },
+  });
+  return data;
+};
+
 // Get featured courses
 export const getFeaturedCourses = async () => {
   const { data } = await api.get("/api/courses?featured=true");

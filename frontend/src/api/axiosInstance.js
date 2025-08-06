@@ -11,14 +11,13 @@ const api = axios.create({
 
 api.interceptors.request.use(
   (config) => {
-    const adminToken = localStorage.getItem("adminToken");
-    const accessToken = localStorage.getItem("accessToken");
+    // If a token is already provided in the request, do nothing
+    if (config.headers?.Authorization) {
+      return config;
+    }
 
-    if (config.url.startsWith("/admin")) {
-      if (adminToken) {
-        config.headers.Authorization = `Bearer ${adminToken.replace(/"/g, "")}`;
-      }
-    } else if (accessToken) {
+    const accessToken = localStorage.getItem("accessToken");
+    if (accessToken) {
       config.headers.Authorization = `Bearer ${accessToken.replace(/"/g, "")}`;
     }
 
