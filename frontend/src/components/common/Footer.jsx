@@ -1,6 +1,9 @@
+import { Link } from "react-router-dom";
+import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+
 function Footer() {
   return (
-    <footer className="bg-altBg text-txt py-10 mt-[200px]">
+    <footer className="bg-altBg text-txt py-10 mt-[100px]">
       <div className="container mx-auto px-5 flex flex-col md:flex-row justify-between gap-8">
         {/* Brand */}
         <div>
@@ -10,32 +13,47 @@ function Footer() {
 
         {/* Links */}
         <div className="flex flex-col gap-2">
-          <a href="#" className="hover:text-accent">
+          <Link to="/" className="hover:text-accent">
             Home
-          </a>
-          <a href="#" className="hover:text-accent">
+          </Link>
+          <Link to="/courses" className="hover:text-accent">
             Courses
-          </a>
-          <a href="#" className="hover:text-accent">
+          </Link>
+          <Link to="/about" className="hover:text-accent">
             About
-          </a>
-          <a href="#" className="hover:text-accent">
+          </Link>
+          <Link to="/contact" className="hover:text-accent">
             Contact
-          </a>
+          </Link>
         </div>
 
         {/* Socials */}
         <div className="flex flex-col gap-2">
           <p className="font-semibold">Follow Me</p>
-          <div className="flex gap-3">
-            <a href="#" className="hover:text-accent">
-              GitHub
+          <div className="flex gap-4 text-2xl">
+            <a
+              href="https://github.com/akash2003git/manabu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-accent"
+            >
+              <FaGithub />
             </a>
-            <a href="#" className="hover:text-accent">
-              LinkedIn
+            <a
+              href="https://www.linkedin.com/in/akash-tayade-/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-accent"
+            >
+              <FaLinkedin />
             </a>
-            <a href="#" className="hover:text-accent">
-              Twitter
+            <a
+              href="https://x.com/akash2003_dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-accent"
+            >
+              <FaXTwitter />
             </a>
           </div>
         </div>

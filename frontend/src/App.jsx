@@ -8,6 +8,7 @@ import LoginPage from "./pages/LoginPage.jsx";
 import SignupPage from "./pages/SignupPage.jsx";
 import CoursesPage from "./pages/CoursesPage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
+import ContactPage from "./pages/ContactPage.jsx";
 import MyCoursesPage from "./pages/MyCoursesPage.jsx";
 import CoursePage from "./pages/CoursePage.jsx";
 import PaymentSuccess from "./pages/PaymentSuccess";
@@ -32,6 +33,7 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
             <Route path="/courses" element={<CoursesPage />} />
             <Route path="/courses/:courseId" element={<CoursePage />} />
 

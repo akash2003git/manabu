@@ -10,12 +10,12 @@ const courses = [
     content: [
       {
         title: "HTML Fundamentals",
-        videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
         description: "Learn the basic structure and tags of HTML5.",
       },
       {
         title: "CSS Styling and Layouts",
-        videoUrl: "https://www.youtube.com/watch?v=h-rP2f-gA58",
+        videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
         description:
           "Explore selectors, properties, and modern layout techniques like Flexbox and Grid.",
       },
@@ -33,12 +33,12 @@ const courses = [
     content: [
       {
         title: "Setting up a React Project",
-        videoUrl: "https://www.youtube.com/watch?v=JgT1mX77F5o",
+        videoUrl: "https://www.youtube.com/embed/4OzU1jdjSZA",
         description: "How to use create-react-app and other tools.",
       },
       {
         title: "Understanding State and Props",
-        videoUrl: "https://www.youtube.com/watch?v=sB1-f-I-F-s",
+        videoUrl: "https://www.youtube.com/embed/4OzU1jdjSZA",
         description: "The two core concepts of data flow in React.",
       },
     ],
@@ -55,13 +55,13 @@ const courses = [
     content: [
       {
         title: "Introduction to Node.js",
-        videoUrl: "https://www.youtube.com/watch?v=TlB_eWDSMt4",
+        videoUrl: "https://www.youtube.com/embed/zZdVwTjUtjg",
         description:
           "Understanding the event loop and asynchronous nature of Node.",
       },
       {
         title: "Building your first Express Server",
-        videoUrl: "https://www.youtube.com/watch?v=pnhO-K68r7E",
+        videoUrl: "https://www.youtube.com/embed/zZdVwTjUtjg",
         description: "Setting up routes, middleware, and handling requests.",
       },
     ],
@@ -77,12 +77,12 @@ const courses = [
     content: [
       {
         title: "Flexbox and CSS Grid",
-        videoUrl: "https://www.youtube.com/watch?v=h-rP2f-gA58",
+        videoUrl: "https://www.youtube.com/embed/-G9bIDalnRY",
         description: "Mastering modern layout techniques.",
       },
       {
         title: "Keyframe Animations and Transitions",
-        videoUrl: "https://www.youtube.com/watch?v=S-t14vV901Y",
+        videoUrl: "https://www.youtube.com/embed/-G9bIDalnRY",
         description: "Create stunning visual effects with CSS.",
       },
     ],
@@ -99,12 +99,12 @@ const courses = [
     content: [
       {
         title: "Arrays and Linked Lists",
-        videoUrl: "https://www.youtube.com/watch?v=W0FpT1R-d8M",
+        videoUrl: "https://www.youtube.com/embed/DN1qM4f8_J0",
         description: "Understanding fundamental data structures.",
       },
       {
         title: "Sorting Algorithms",
-        videoUrl: "https://www.youtube.com/watch?v=S0y62y_sVdM",
+        videoUrl: "https://www.youtube.com/embed/DN1qM4f8_J0",
         description: "Implement and analyze different sorting algorithms.",
       },
     ],
@@ -121,13 +121,13 @@ const courses = [
     content: [
       {
         title: "What is Machine Learning?",
-        videoUrl: "https://www.youtube.com/watch?v=k_L6fT0-w2I",
+        videoUrl: "https://www.youtube.com/embed/hnpILIIo9ek",
         description:
           "An overview of supervised, unsupervised, and reinforcement learning.",
       },
       {
         title: "Regression and Classification",
-        videoUrl: "https://www.youtube.com/watch?v=A3nSgR0z3oQ",
+        videoUrl: "https://www.youtube.com/embed/hnpILIIo9ek",
         description: "Implement your first models using scikit-learn.",
       },
     ],
@@ -143,12 +143,12 @@ const courses = [
     content: [
       {
         title: "Setting up the Backend",
-        videoUrl: "https://www.youtube.com/watch?v=TzI14R_4-iU",
+        videoUrl: "https://www.youtube.com/embed/pFptt7Cargc",
         description: "Creating the API and database schema.",
       },
       {
         title: "Building the Frontend",
-        videoUrl: "https://www.youtube.com/watch?v=XhI56z42sQ4",
+        videoUrl: "https://www.youtube.com/embed/pFptt7Cargc",
         description: "Developing the user interface with React.",
       },
     ],
@@ -164,7 +164,7 @@ const courses = [
     content: [
       {
         title: "Introduction to Docker",
-        videoUrl: "https://www.youtube.com/watch?v=Yf1e941C47g",
+        videoUrl: "https://www.youtube.com/embed/HyHNuVaZJ-k",
         description: "Understanding containers, images, and Dockerfiles.",
       },
     ],
@@ -180,12 +180,12 @@ const courses = [
     content: [
       {
         title: "Working with Pandas",
-        videoUrl: "https://www.youtube.com/watch?v=C_Dq3h4jV_4",
+        videoUrl: "https://www.youtube.com/embed/HyHNuVaZJ-k",
         description: "Cleaning and manipulating data with DataFrames.",
       },
       {
         title: "Data Visualization with Matplotlib",
-        videoUrl: "https://www.youtube.com/watch?v=n-P_V9-Hh8U",
+        videoUrl: "https://www.youtube.com/embed/HyHNuVaZJ-k",
         description: "Creating beautiful and informative plots.",
       },
     ],
@@ -201,7 +201,7 @@ const courses = [
     content: [
       {
         title: "GraphQL vs. REST",
-        videoUrl: "https://www.youtube.com/watch?v=7uK-0kL9P8k",
+        videoUrl: "https://www.youtube.com/embed/2ZfcZEIo6Bw",
         description: "Understanding the key differences and when to use each.",
       },
     ],
@@ -217,7 +217,7 @@ const courses = [
     content: [
       {
         title: "Naming Conventions",
-        videoUrl: "https://www.youtube.com/watch?v=rU0pE7f3p20",
+        videoUrl: "https://www.youtube.com/embed/VLMo0rthnoo",
         description: "The importance of clear and descriptive names.",
       },
     ],
@@ -234,12 +234,12 @@ const courses = [
     content: [
       {
         title: "EC2 and S3 Basics",
-        videoUrl: "https://www.youtube.com/watch?v=k_YQ3p8yN0Q",
+        videoUrl: "https://www.youtube.com/embed/iIpfWORQWhU",
         description: "Setting up virtual machines and object storage.",
       },
       {
         title: "Using Lambda Functions",
-        videoUrl: "https://www.youtube.com/watch?v=p4vI9bH4-tI",
+        videoUrl: "https://www.youtube.com/embed/iIpfWORQWhU",
         description: "Building serverless applications.",
       },
     ],
@@ -276,12 +276,12 @@ const courses = [
     content: [
       {
         title: "Introduction to Relational Databases",
-        videoUrl: "https://www.youtube.com/watch?v=qj6r_Jm9qJg",
+        videoUrl: "https://www.youtube.com/embed/eZXKCiUMRlc",
         description: "Understanding tables, keys, and relationships.",
       },
       {
         title: "Essential SQL Commands",
-        videoUrl: "https://www.youtube.com/watch?v=2SgYw3G1o_w",
+        videoUrl: "https://www.youtube.com/embed/eZXKCiUMRlc",
         description: "Learning SELECT, INSERT, UPDATE, and DELETE statements.",
       },
     ],
@@ -298,12 +298,12 @@ const courses = [
     content: [
       {
         title: "Network Security Basics",
-        videoUrl: "https://www.youtube.com/watch?v=8Vz9N3H0k6Q",
+        videoUrl: "https://www.youtube.com/embed/Pv56oBAfRhY",
         description: "Firewalls, encryption, and secure protocols.",
       },
       {
         title: "Ethical Hacking and Penetration Testing",
-        videoUrl: "https://www.youtube.com/watch?v=8hX-cKz-c4E",
+        videoUrl: "https://www.youtube.com/embed/Pv56oBAfRhY",
         description:
           "A responsible approach to finding and fixing vulnerabilities.",
       },
@@ -320,12 +320,12 @@ const courses = [
     content: [
       {
         title: "Introduction to Azure",
-        videoUrl: "https://www.youtube.com/watch?v=Nn1R4_1B_7U",
+        videoUrl: "https://www.youtube.com/embed/vAOzFvVz718",
         description: "Overview of Azure services and infrastructure.",
       },
       {
         title: "Deploying Web Apps",
-        videoUrl: "https://www.youtube.com/watch?v=J_jKjB7gJ-k",
+        videoUrl: "https://www.youtube.com/embed/vAOzFvVz718",
         description: "Using Azure App Service for web deployments.",
       },
     ],
@@ -341,12 +341,12 @@ const courses = [
     content: [
       {
         title: "Django Framework",
-        videoUrl: "https://www.youtube.com/watch?v=F0m-yU2x1q0",
+        videoUrl: "https://www.youtube.com/embed/TGgcC5xg9YI",
         description: "Building a full-featured web app with Django.",
       },
       {
         title: "REST APIs with Django REST Framework",
-        videoUrl: "https://www.youtube.com/watch?v=UqI7N5i61t4",
+        videoUrl: "https://www.youtube.com/embed/TGgcC5xg9YI",
         description: "Creating robust APIs for your applications.",
       },
     ],
@@ -362,12 +362,12 @@ const courses = [
     content: [
       {
         title: "The Human-Centered Design Process",
-        videoUrl: "https://www.youtube.com/watch?v=FTQ6wGZ-v7s",
+        videoUrl: "https://www.youtube.com/embed/T_lC2O1oIew",
         description: "Putting the user at the center of the design process.",
       },
       {
         title: "Color Theory and Typography",
-        videoUrl: "https://www.youtube.com/watch?v=5x0k1XW318A",
+        videoUrl: "https://www.youtube.com/embed/T_lC2O1oIew",
         description: "Using visual elements to create effective designs.",
       },
     ],
@@ -383,13 +383,13 @@ const courses = [
     content: [
       {
         title: "How Blockchain Works",
-        videoUrl: "https://www.youtube.com/watch?v=yubzJw0gO6Q",
+        videoUrl: "https://www.youtube.com/embed/srnyVw-OR0g",
         description:
           "Understanding the fundamental concepts of blocks and chains.",
       },
       {
         title: "Introduction to Smart Contracts",
-        videoUrl: "https://www.youtube.com/watch?v=p4wG_I8g0hM",
+        videoUrl: "https://www.youtube.com/embed/srnyVw-OR0g",
         description: "Coding your first smart contract on Ethereum.",
       },
     ],
@@ -405,13 +405,13 @@ const courses = [
     content: [
       {
         title: "Unity Editor and C# Basics",
-        videoUrl: "https://www.youtube.com/watch?v=k-V3yD6a4gI",
+        videoUrl: "https://www.youtube.com/embed/6Nb-prB-4P0",
         description:
           "Getting familiar with the Unity interface and scripting with C#.",
       },
       {
         title: "Building a Simple 2D Game",
-        videoUrl: "https://www.youtube.com/watch?v=5_d_e_f_g_h_i",
+        videoUrl: "https://www.youtube.com/embed/6Nb-prB-4P0",
         description:
           "A step-by-step guide to creating a simple game from scratch.",
       },
