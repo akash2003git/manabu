@@ -4,17 +4,36 @@ A full-featured online course-selling platform with secure payments, role-based 
 
 ## 🚀 Demo
 
-Click thumbnail to play demo video
+**Click thumbnail to play demo video**
 
 ### 👇 User
 
-[Live Demo](https://manabu-frontend.vercel.app/)
-[![User Demo](https://res.cloudinary.com/dqpl3oz88/image/upload/v1754590303/user_zq5owa.png)](https://res.cloudinary.com/dqpl3oz88/video/upload/v1754590050/user_u1tssr.mp4)
+- Live Link:
+  [Live Demo](https://manabu-frontend.vercel.app/)
+
+- Video Preview:
+  [![User Demo](https://res.cloudinary.com/dqpl3oz88/image/upload/v1754590303/user_zq5owa.png)](https://res.cloudinary.com/dqpl3oz88/video/upload/v1754590050/user_u1tssr.mp4)
 
 ### 👇 Admin
 
-[Live Demo](https://manabu-frontend.vercel.app/admin)
-[![Admin demo](https://res.cloudinary.com/dqpl3oz88/image/upload/v1754590301/admin_avoclx.png)](https://res.cloudinary.com/dqpl3oz88/video/upload/v1754590047/admin_wk50gn.mp4)
+- Live Link:
+  [Live Demo](https://manabu-frontend.vercel.app/admin)
+
+- Video Preview:
+  [![Admin demo](https://res.cloudinary.com/dqpl3oz88/image/upload/v1754590301/admin_avoclx.png)](https://res.cloudinary.com/dqpl3oz88/video/upload/v1754590047/admin_wk50gn.mp4)
+
+---
+
+## 🧪 Test Payments with Stripe
+
+Use the following test card details to simulate payments in test mode:
+
+| Card Number         | Expiry | CVC | Result             |
+| ------------------- | ------ | --- | ------------------ |
+| 4242 4242 4242 4242 | 12/34  | 123 | Payment successful |
+| 4000 0000 0000 9995 | 12/34  | 123 | Payment declined   |
+
+> Use any future expiry date and any 3-digit CVC.
 
 ---
 
