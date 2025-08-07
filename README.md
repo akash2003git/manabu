@@ -4,14 +4,16 @@ A full-featured online course-selling platform with secure payments, role-based 
 
 ## 🚀 Demo
 
-https://manabu-frontend.vercel.app/
+Click thumbnail to play demo video
 
-### 👇 User Walkthrough
+### 👇 User
 
+[Live Demo](https://manabu-frontend.vercel.app/)
 [![User Demo](https://res.cloudinary.com/dqpl3oz88/image/upload/v1754590303/user_zq5owa.png)](https://res.cloudinary.com/dqpl3oz88/video/upload/v1754590050/user_u1tssr.mp4)
 
-### 👇 Admin Walkthrough
+### 👇 Admin
 
+[Live Demo](https://manabu-frontend.vercel.app/admin)
 [![Admin demo](https://res.cloudinary.com/dqpl3oz88/image/upload/v1754590301/admin_avoclx.png)](https://res.cloudinary.com/dqpl3oz88/video/upload/v1754590047/admin_wk50gn.mp4)
 
 ---
