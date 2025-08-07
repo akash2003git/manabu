@@ -8,11 +8,11 @@ https://manabu-frontend.vercel.app/
 
 ### 👇 User Walkthrough
 
-[![User Demo](https://res.cloudinary.com/dqpl3oz88/image/upload/v1754590303/user_zq5owa.png)](https://youtu.be/-j6jDa4iJQ0)
+[![User Demo](https://res.cloudinary.com/dqpl3oz88/image/upload/v1754590303/user_zq5owa.png)](https://res.cloudinary.com/dqpl3oz88/video/upload/v1754590050/user_u1tssr.mp4)
 
 ### 👇 Admin Walkthrough
 
-[![Admin demo](https://res.cloudinary.com/dqpl3oz88/image/upload/v1754590301/admin_avoclx.png)](https://youtu.be/xIHyMfl5_eY)
+[![Admin demo](https://res.cloudinary.com/dqpl3oz88/image/upload/v1754590301/admin_avoclx.png)](https://res.cloudinary.com/dqpl3oz88/video/upload/v1754590047/admin_wk50gn.mp4)
 
 ---
 
