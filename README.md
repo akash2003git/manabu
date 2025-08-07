@@ -15,6 +15,13 @@ A full-featured online course-selling platform with secure payments, role-based 
 
 ### 👇 Admin
 
+- Admin Credentials:
+
+```
+email: admin@example.com
+password: admin123
+```
+
 - Live Link: https://manabu-frontend.vercel.app/admin
 
 - Video Preview:
