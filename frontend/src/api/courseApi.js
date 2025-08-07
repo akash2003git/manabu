@@ -74,8 +74,72 @@ export const getFeaturedCourses = async () => {
 };
 
 // Get course content
-export const getCourseContent = async (id) => {
+export const getCourseContent = async (id, admin) => {
+  if (admin) {
+    const adminToken = localStorage.getItem("adminToken");
+    if (!adminToken) {
+      throw new Error("Admin not authenticated");
+    }
+    const { data } = await api.get(`/api/courses/${id}/content`, {
+      headers: {
+        Authorization: `Bearer ${adminToken?.replace(/"/g, "")}`,
+      },
+    });
+    return data;
+  }
   const { data } = await api.get(`/api/courses/${id}/content`);
+  return data;
+};
+
+// Add course content
+export const createCourseContent = async (id, newContent) => {
+  const adminToken = localStorage.getItem("adminToken");
+  if (!adminToken) {
+    throw new Error("Admin not authenticated");
+  }
+  const { data } = await api.post(`/api/courses/${id}/content`, newContent, {
+    headers: {
+      Authorization: `Bearer ${adminToken?.replace(/"/g, "")}`,
+    },
+  });
+  return data;
+};
+
+// Delete course content
+export const deleteCourseContent = async (courseId, contentId) => {
+  const adminToken = localStorage.getItem("adminToken");
+  if (!adminToken) {
+    throw new Error("Admin not authenticated");
+  }
+  const { data } = await api.delete(
+    `/api/courses/${courseId}/content/${contentId}`,
+    {
+      headers: {
+        Authorization: `Bearer ${adminToken.replace(/"/g, "")}`,
+      },
+    },
+  );
+
+  return data;
+};
+
+// Update course content
+export const updateCourseContent = async (courseId, contentId, updates) => {
+  const adminToken = localStorage.getItem("adminToken");
+  if (!adminToken) {
+    throw new Error("Admin not authenticated");
+  }
+
+  const { data } = await api.put(
+    `/api/courses/${courseId}/content/${contentId}`,
+    updates,
+    {
+      headers: {
+        Authorization: `Bearer ${adminToken.replace(/"/g, "")}`,
+      },
+    },
+  );
+
   return data;
 };
 

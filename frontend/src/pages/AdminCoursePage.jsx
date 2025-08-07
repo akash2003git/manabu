@@ -1,10 +1,16 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { getCourseById, deleteCourse } from "../api/courseApi";
+import {
+  getCourseById,
+  deleteCourse,
+  getCourseContent,
+} from "../api/courseApi";
 import { FaEdit, FaTrash } from "react-icons/fa";
+import AdminCourseContent from "../components/admin/AdminCourseContent";
 
 function AdminCoursePage() {
   const [course, setCourse] = useState(null);
+  const [content, setContent] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -16,7 +22,11 @@ function AdminCoursePage() {
     async function getCourseDetails() {
       try {
         const data = await getCourseById(courseId);
-        if (isMounted) setCourse(data);
+        const content = await getCourseContent(courseId, true);
+        if (isMounted) {
+          setCourse(data);
+          setContent(content);
+        }
       } catch (err) {
         console.error(err);
         if (isMounted) setError("Error fetching course details");
@@ -47,6 +57,15 @@ function AdminCoursePage() {
     }
   }
 
+  async function refreshContent() {
+    try {
+      const updatedContent = await getCourseContent(courseId, true);
+      setContent(updatedContent);
+    } catch (err) {
+      console.error("Failed to refresh content", err);
+    }
+  }
+
   if (loading) {
     return <p className="text-center">Loading...</p>;
   }
@@ -61,7 +80,7 @@ function AdminCoursePage() {
 
   return (
     <div className="w-full">
-      <div className="flex flex-col lg:flex-row w-full gap-10 mb-10">
+      <div className="flex flex-col lg:flex-row w-full gap-10 mb-10 border-b border-secondary pb-5">
         <img
           src={course.imageLink}
           alt={course.title}
@@ -91,6 +110,12 @@ function AdminCoursePage() {
           </div>
         </div>
       </div>
+
+      <AdminCourseContent
+        content={content}
+        courseId={courseId}
+        onContentUpdated={refreshContent}
+      />
     </div>
   );
 }

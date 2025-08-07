@@ -1,7 +1,15 @@
 import { useState } from "react";
 import { FaChevronDown, FaChevronRight, FaLock } from "react-icons/fa";
+import { FaEdit, FaTrash } from "react-icons/fa";
 
-export function CourseContentList({ content, isAccessible }) {
+export function CourseContentList({
+  content,
+  isAccessible,
+  admin,
+  onDelete,
+  loading,
+  onEdit,
+}) {
   const [openItem, setOpenItem] = useState(null);
 
   const toggleItem = (index) => {
@@ -22,12 +30,49 @@ export function CourseContentList({ content, isAccessible }) {
                 !isAccessible && "opacity-60 cursor-not-allowed"
               }`}
             >
+              {/* Left side: Title + Lock Icon */}
               <div className="flex items-center gap-2 text-accent">
                 {!isAccessible && <FaLock className="text-red-400" />}
                 <span className="font-medium">{item.title}</span>
               </div>
-              {isAccessible &&
-                (isOpen ? <FaChevronDown /> : <FaChevronRight />)}
+
+              {/* Right side: Arrow + Edit Button */}
+              <div className="flex items-center gap-3">
+                {isAccessible &&
+                  (isOpen ? <FaChevronDown /> : <FaChevronRight />)}
+                {admin && (
+                  <div className="flex gap-2">
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onEdit?.(item);
+                      }}
+                      className="bg-accent hover:bg-secondary cursor-pointer text-txt py-2 px-4 rounded-md flex items-center gap-2"
+                    >
+                      <FaEdit />
+                    </button>
+
+                    <button
+                      disabled={loading}
+                      className={`bg-red-500 hover:bg-red-700 cursor-pointer text-txt py-2 px-4 rounded-md flex items-center gap-2 ${
+                        loading ? "opacity-50 cursor-not-allowed" : ""
+                      }`}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        if (
+                          confirm(
+                            "Are you sure you want to delete this content?",
+                          )
+                        ) {
+                          onDelete?.(item._id);
+                        }
+                      }}
+                    >
+                      <FaTrash />
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* Dropdown Content */}
