@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
   const videoUrl =
     "https://cdn.pixabay.com/video/2015/10/16/1028-142624363_large.mp4";
+
+  const navigate = useNavigate();
 
   // Variants for staggered animations
   const containerVariants = {
@@ -73,6 +76,7 @@ const Hero = () => {
             {/* Animated Button */}
             <motion.button
               className="text-md sm:text-lg cursor-pointer bg-accent hover:bg-secondary text-txt font-bold py-3 px-8 rounded-full shadow-lg transition-colors duration-300 ease-in-out"
+              onClick={() => navigate("/courses")}
               variants={fadeUp}
               whileHover={{
                 scale: 1.08,
